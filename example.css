@@ -1,0 +1,24 @@
+#backToTop {
+    display: none;
+    position: fixed;
+    z-index: 1030;
+    width: 90px;
+    height: 100%;
+    cursor: pointer;
+    background-color: #ecf0f1;
+    margin-top: -21px;
+    opacity: 0.5;
+}
+#backToTop:hover {
+    opacity: 1;
+}
+#backToTop a {
+    display: block;
+    line-height: 14px;
+    height: 14px;
+    padding-left: 20px;
+    margin: 10px 0 0 10px;
+    background: url('../img/back_to_top/back-to-top.gif') no-repeat left -7px;
+    text-decoration: none;
+    color: #4D7285;
+}

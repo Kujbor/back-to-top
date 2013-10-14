@@ -1,0 +1,5 @@
+$(function() {
+
+    $('#backToTop').backToTop('.container');
+    
+});

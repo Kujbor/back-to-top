@@ -1,3 +1,8 @@
+/*
+ * example.css - example of jQuery Back-to-top button plugin CSS
+ * Author Oleg Taranov aka Kujbor
+ * Copyright (C) 2013: CubeComp Development
+ */
 #backToTop {
     display: none;
     position: fixed;

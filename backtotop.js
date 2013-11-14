@@ -60,13 +60,13 @@
 
                 if (top > 100) {
 
-                    $button.text('Наверх');
+                    $button.text('Up');
                     $button.css('background-position', 'left 3px');
                     $block.show();
 
                 } else if (savedScroll) {
 
-                    $button.text('Вниз');
+                    $button.text('Down');
                     $button.css('background-position', 'left -7px');
                     $block.show();
 

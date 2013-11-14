@@ -1,4 +1,4 @@
-jquery-back-to-top
+jquery-backtotop
 ===========
 
 jQuery very cool Back-to-top button plugin

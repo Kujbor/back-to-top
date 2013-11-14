@@ -1,5 +1,5 @@
 /*
- * back_to_top.js - jQuery very cool Back-to-top button plugin
+ * backtotop.js - very cool Back-to-top button
  * Author Oleg Taranov aka Kujbor
  * Copyright (C) 2013: CubeComp Development
  */
@@ -19,9 +19,9 @@
 
         function getScroll() {
 
-            return self.pageYOffset
-                    || (doc.documentElement && doc.documentElement.scrollTop)
-                    || (doc.body && doc.body.scrollTop);
+            return self.pageYOffset ||
+                    (doc.documentElement && doc.documentElement.scrollTop) ||
+                    (doc.body && doc.body.scrollTop);
         }
 
         function updateButton() {
@@ -47,15 +47,11 @@
                         $block.show();
 
                     } else {
-
                         $block.hide();
-
                     }
 
                 } else {
-
                     $block.hide();
-
                 }
 
             } else {
@@ -64,20 +60,18 @@
 
                 if (top > 100) {
 
-                    $button.text('Up');
+                    $button.text('Наверх');
                     $button.css('background-position', 'left 3px');
                     $block.show();
 
                 } else if (savedScroll) {
 
-                    $button.text('Down');
+                    $button.text('Вниз');
                     $button.css('background-position', 'left -7px');
                     $block.show();
 
                 } else {
-
                     $block.hide();
-
                 }
             }
         }
@@ -92,9 +86,7 @@
                 $('body,html').scrollTop(0);
 
             } else if (savedScroll) {
-
                 $('body,html').scrollTop(savedScroll);
-
             }
 
             if (event.preventDefault) {
@@ -102,9 +94,6 @@
             }
 
             event.returnValue = false;
-
         });
-
     };
-
-})($);
+})(jQuery);

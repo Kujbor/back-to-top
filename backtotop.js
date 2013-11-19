@@ -3,7 +3,7 @@
  * Author Oleg Taranov aka Kujbor
  * Copyright (C) 2013: CubeComp Development
  */
-define("jquery.backtotop", ["jquery"], function(;) {
+define("jquery.backtotop", ["jquery"], function($) {
 
     "use strict";
 

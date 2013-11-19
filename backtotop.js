@@ -1,18 +1,18 @@
 /*
- * backtotop.js - very cool Back-to-top button
+ * jquery.backtotop.js - very cool Back-to-top button
  * Author Oleg Taranov aka Kujbor
  * Copyright (C) 2013: CubeComp Development
  */
-(function($) {
+define("jquery.backtotop", ["jquery"], function(;) {
 
     "use strict";
 
     $.fn.backToTop = function(contentBoxIdentifer) {
 
-        var $body = $('body');
+        var $body = $("body");
         var $container = $(contentBoxIdentifer);
         var $block = $(this);
-        var $button = $block.find('a');
+        var $button = $block.find("a");
         var $window = $(window);
         var doc = document;
         var savedScroll = 0;
@@ -34,16 +34,16 @@
                 if (offset > 40) {
 
                     $block.width(40);
-                    $button.text('');
+                    $button.text("");
 
                     if (top > 100) {
 
-                        $button.css('background-position', 'left 3px');
+                        $button.css("background-position", "left 3px");
                         $block.show();
 
                     } else if (savedScroll) {
 
-                        $button.css('background-position', 'left -7px');
+                        $button.css("background-position", "left -7px");
                         $block.show();
 
                     } else {
@@ -60,14 +60,14 @@
 
                 if (top > 100) {
 
-                    $button.text('Up');
-                    $button.css('background-position', 'left 3px');
+                    $button.text("Up");
+                    $button.css("background-position", "left 3px");
                     $block.show();
 
                 } else if (savedScroll) {
 
-                    $button.text('Down');
-                    $button.css('background-position', 'left -7px');
+                    $button.text("Down");
+                    $button.css("background-position", "left -7px");
                     $block.show();
 
                 } else {
@@ -76,17 +76,17 @@
             }
         }
 
-        $window.on('load resize scroll click', updateButton);
+        $window.on("load resize scroll click", updateButton);
 
-        $block.on('click', function(event) {
+        $block.on("click", function(event) {
 
             if (getScroll() > 100) {
 
                 savedScroll = getScroll();
-                $('body,html').scrollTop(0);
+                $("body,html").scrollTop(0);
 
             } else if (savedScroll) {
-                $('body,html').scrollTop(savedScroll);
+                $("body,html").scrollTop(savedScroll);
             }
 
             if (event.preventDefault) {
@@ -96,4 +96,4 @@
             event.returnValue = false;
         });
     };
-})(jQuery);
+});

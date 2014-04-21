@@ -17,17 +17,17 @@ define("jquery.backtotop", ["jquery"], function($) {
         var doc = document;
         var savedScroll = 0;
 
-        function getScroll() {
+        $block.getScroll = function() {
 
             return self.pageYOffset ||
                     (doc.documentElement && doc.documentElement.scrollTop) ||
                     (doc.body && doc.body.scrollTop);
-        }
+        };
 
-        function updateButton() {
+        $block.updateButton = function() {
 
             var offset = ($body.outerWidth() - $container.outerWidth()) / 2;
-            var top = getScroll();
+            var top = $block.getScroll();
 
             if (offset < 90) {
 
@@ -60,13 +60,13 @@ define("jquery.backtotop", ["jquery"], function($) {
 
                 if (top > 100) {
 
-                    $button.text("Up");
+                    $button.text("Вверх");
                     $button.css("background-position", "left 3px");
                     $block.show();
 
                 } else if (savedScroll) {
 
-                    $button.text("Down");
+                    $button.text("Вниз");
                     $button.css("background-position", "left -7px");
                     $block.show();
 
@@ -74,26 +74,30 @@ define("jquery.backtotop", ["jquery"], function($) {
                     $block.hide();
                 }
             }
-        }
+        };
 
-        $window.on("load resize scroll click", updateButton);
+        $block.reset = function() {
+            $("body,html").scrollTop(0);
+            savedScroll = null;
+            $block.updateButton();
+        };
+
+        $window.on("load resize scroll click", $block.updateButton);
 
         $block.on("click", function(event) {
 
-            if (getScroll() > 100) {
+            if ($block.getScroll() > 100) {
 
-                savedScroll = getScroll();
+                savedScroll = $block.getScroll();
                 $("body,html").scrollTop(0);
 
             } else if (savedScroll) {
                 $("body,html").scrollTop(savedScroll);
             }
 
-            if (event.preventDefault) {
-                event.preventDefault();
-            }
-
-            event.returnValue = false;
+            event.preventDefault();
         });
+
+        return $block;
     };
 });
